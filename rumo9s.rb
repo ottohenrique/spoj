@@ -5,6 +5,8 @@ while ((nr=gets.to_i)!=0)
     while nr > 9
         nr = nr.to_s.split('').inject(0) {|s, c| s + c.to_i}
         ct += 1
+        
+        puts "#{ct} soma: #{nr}"
     end   
             
     if(nr == 9)
