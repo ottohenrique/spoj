@@ -1,22 +1,15 @@
-STDIN.read.split("\n").each do |a|
-    if a != '0'
-        nr = a.to_i
-        soma = 0
+while ((nr=gets.to_i)!=0)
+    l = nr
+    ct = (nr == 9) ? 1 : 0
 
-        while nr > 0
-            n = nr % 10
-            soma += n
-            nr = (nr - n) / 10
-        end
-        
-        if((soma % 9) == 0)
-          puts "#{a} is a multiple of 9 and has 9-degree #{soma.to_s.size}"
-        else 
-         puts "#{a} is not a multiple of 9"
-        end
-    else
-        exit 0
+    while nr > 9
+        nr = nr.to_s.split('').inject(0) {|s, c| s + c.to_i}
+        ct += 1
+    end   
+            
+    if(nr == 9)
+        puts "#{l} is a multiple of 9 and has 9-degree #{ct}"
+    else 
+        puts "#{l} is not a multiple of 9"
     end
 end
-
-
